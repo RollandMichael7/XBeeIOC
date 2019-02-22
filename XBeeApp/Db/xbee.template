@@ -1,0 +1,60 @@
+# Database for XBee L/T/H sensor
+
+# Read light
+record(ai, "$(Sys)$(Dev)L")
+{
+	field(DESC, "Light Reading")
+	field(DTYP, "stream")
+	field(PREC, "5")
+	field(HIHI, "1200")
+	field(HIGH, "800")
+	field(HSV,  "MINOR")
+	field(HHSV, "MAJOR")
+    field(INP,	"@xbee.proto read_light($(N)) $(PORT)")
+    field(FLNK,	"$(Next)L")
+}
+
+# Read temperature
+record(ai, "$(Sys)$(Dev)T")
+{
+	field(DESC, "Temp Reading")
+	field(DTYP,	"stream")
+	field(EGU,  "C")
+	field(PREC, "5")
+	field(HIHI, "50")
+	field(HIGH, "40")
+	field(LO,	"10")
+	field(LOLO,	"1")
+	field(HSV,  "MINOR")
+	field(HHSV, "MAJOR")
+	field(LSV,	"MINOR")
+	field(LLSV,	"MAJOR")
+    field(INP,	"@xbee.proto read_temp($(N)) $(PORT)")
+    field(FLNK,	"$(Next)T")
+}
+
+# Read humidity
+record(ai, "$(Sys)$(Dev)H")
+{
+	field(DESC, "Humidity Reading")
+	field(DTYP,	"stream")
+	field(EGU,  "%")
+	field(PREC, "5")
+	field(HIHI, "80")
+	field(HIGH, "60")
+	field(HSV,  "MINOR")
+	field(HHSV, "MAJOR")
+    field(INP,	"@xbee.proto read_humidity($(N)) $(PORT)")
+    field(FLNK,	"$(Next)H")
+}
+
+# Get sensor ID
+record(waveform, "$(Sys)$(Dev)ID")
+{
+	field(DESC,	"Sensor ID")
+	field(DTYP,	"stream")
+	field(INP,	"@xbee.proto read_id($(N)) $(PORT)")
+	field(FLNK,	"$(Next)ID")
+}
+
+

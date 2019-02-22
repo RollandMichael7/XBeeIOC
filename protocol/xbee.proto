@@ -1,0 +1,30 @@
+Terminator = CR LF;
+
+LockTimeout = 3000;
+WriteTimeout = 2000;
+ReadTimeout = 25000;
+ReplyTimeout = 1000;
+
+# Read light
+read_light {
+	out "L\$1";
+	in "%f";
+}
+
+# Read temperature
+read_temp {
+	out "T\$1";
+	in "%f";
+}
+
+# Read humidity
+read_humidity {
+	out "H\$1";
+	in "%f";
+}
+
+# Get ID
+read_id {
+	out "ID\$1";
+	in "%s";
+}

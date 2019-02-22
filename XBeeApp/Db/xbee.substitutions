@@ -1,0 +1,7 @@
+file "xbee.template"
+{
+pattern { Sys,      Dev  ,    N, 	Next			   	, 	PORT}
+{ XF:10IDB  , "{XBEE:001}",   0,	"XF:10IDB{XBEE:002}", 	XBEE}
+{ XF:10IDB  , "{XBEE:002}",   1,	"XF:10IDB{XBEE:003}", 	XBEE}
+{ XF:10IDB  , "{XBEE:003}",   2,	""					,	XBEE}
+}

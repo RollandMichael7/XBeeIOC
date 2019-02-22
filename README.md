@@ -12,6 +12,7 @@ An EPICS StreamDevice input-output controller for wireless XBee L/T/H sensors, u
 - EPICS StreamDevice requirements:
   - EPICS base >R.13.8.2
   - asyn >R4-3
+  - stream
   
 # Setup #
 ## Setting up your gateway ##
@@ -39,5 +40,5 @@ The XBEE port must be set to point to your gateway. Edit the following line in i
 
 Additionally, change the scans at the bottom of st.cmd to scan the correct PV names.
 
-After setting up the PVs, modify configure/RELEASE to point to your EPICS base and asyn installations then run 'make' 
+After setting up the PVs, modify configure/RELEASE to point to your EPICS base, asyn and stream installations then run 'make' 
 to compile. Your IOC is now ready to run!

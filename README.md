@@ -10,7 +10,7 @@ An EPICS StreamDevice input-output controller for wireless XBee L/T/H sensors, u
 - A Digi XBee Gateway that can run Python
 - XBee wireless L/T/H sensors
 - EPICS StreamDevice requirements:
-  - EPICS base >R.13.8.2
+  - EPICS base >R3.14.6
   - asyn >R4-3
   - stream
   

@@ -40,7 +40,7 @@ node to set their PAN IDs to the same value of your choosing. Also give each sen
 node identifiers into ```python/xstick/xstickTCP.py``` in the ```node_ids``` array, and set the port and baud rate for your 
 XStick. Note that if the port file is not accessible to your account, you may need to use ```sudo``` to run the server. After 
 setting these variables, the script is ready to run; the IOC will work only as long as this script is running, so keep it running 
-in the background: ``` python3 xstickTCP.py & ```
+in the background: ``` (sudo) nohup python3 xstickTCP.py & ```
 
 ## Setting up the IOC ##
 Edit XBeeApp/Db/xbee.substitutions to set the PV names, sensor numbers, and forward links. The PORT should always be 

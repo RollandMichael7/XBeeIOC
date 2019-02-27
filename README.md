@@ -5,6 +5,7 @@ An EPICS StreamDevice input-output controller for wireless XBee L/T/H sensors, u
 - The sCalcout record will cause an error when reading the generated dbd file. To avoid this, all references to 'scalcout' (about
 3 lines) must be removed from the dbd file before running the IOC.
 - Sometimes the IOC will interpret responses incorrectly when it starts up, causing readings to be sent to the wrong PVs. If this happens, just restart the IOC.
+- The Digi XBee python module does not like being run in the background, and will raise an InvalidOperatingModeException. Thus, the XStick server must be run in the foreground.
 
 # Requirements #
 - An XBee coordinator node, either an [XStick](https://www.digi.com/products/networking/rf-adapters-modems/xstick) or [Gateway](https://www.digi.com/products/networking/gateways/xbee-gateway)
@@ -39,8 +40,8 @@ use the discover modules tool to discover your XStick, and use the XStick panel 
 node to set their PAN IDs to the same value of your choosing. Also give each sensor a unique Node Identifier (NI). Enter your 
 node identifiers into ```python/xstick/xstickTCP.py``` in the ```node_ids``` array, and set the port and baud rate for your 
 XStick. Note that if the port file is not accessible to your account, you may need to use ```sudo``` to run the server. After 
-setting these variables, the script is ready to run; the IOC will work only as long as this script is running, so keep it running 
-in the background: ``` (sudo) nohup python3 xstickTCP.py & ```
+setting these variables, the script is ready to run; ~~the IOC will work only as long as this script is running, so keep it 
+running in the background: ``` (sudo) nohup python3 xstickTCP.py & ```~~. Currently, the Digi XBee module will complain that it can not determine operating mode if the script is run in the background.
 
 ## Setting up the IOC ##
 Edit XBeeApp/Db/xbee.substitutions to set the PV names, sensor numbers, and forward links. The PORT should always be 

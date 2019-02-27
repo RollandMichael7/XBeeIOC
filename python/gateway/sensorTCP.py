@@ -37,12 +37,10 @@ from socket import *
 
 import xbeelib.xbeelt
 
-# IMPORTANT: Add sensor addresses here!
-# Sensor addresses can be found by going to the
-# IP of your gateway in a browser and clicking the
-# "XBee Network" tab. Use the extended address.
-sensor_addresses = ["[00:13:a2:00:41:63:87:88]!"]
-
+# Create sensor objects
+sensor_addresses = ["[00:13:a2:00:41:63:87:88]!",
+                    "[00:13:a2:00:41:4f:ad:92]!",
+                    "[00:13:a2:00:41:4f:ad:97]!"]
 sensors = [xbeelib.xbeelt.XBeeLTN(addr) for addr in sensor_addresses]
 
 # Setup socket

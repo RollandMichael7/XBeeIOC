@@ -66,8 +66,10 @@ class XBeeLTN(XBeeDevice):
                 
         light = parseIS(io_sample)["AI1"]
         temp  = parseIS(io_sample)["AI2"]
+        # michael rolland - add humidity reading from ADC3
+        humidity = parseIS(io_sample)["AI3"]
 
-        item = {'temperature': temp, 'light': light}
+        item = {'temperature': temp, 'light': light, 'humidity': humidity}
         return item
 
     def sample(self, io_sample=None):
@@ -77,7 +79,8 @@ class XBeeLTN(XBeeDevice):
 
         mVanalog = (float(item['temperature'])  / 1023.0) * 1200.0
         temp_C = (mVanalog - 500.0)/ 10.0 # - 4.0
-        # michael rolland - added humidity 
+        # michael rolland - added humidity
+        mVanalog = (float(item['humidity']) / 1023.0) * 1200.0
         hum = (((mVanalog * 108.2 / 33.2) / 5000 - 0.16) / .0062)
         ##NOTE:  Removed self heating correction of -4.0 celsius. 
         ##       Device is intended to be battery powered, which produces minimal 

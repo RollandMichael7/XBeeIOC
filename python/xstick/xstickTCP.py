@@ -33,10 +33,10 @@ TCPSock.bind((host, port))
 connected = False
 while True:
     if not connected:
-        print("Waiting for a connection...")
+        #print("Waiting for a connection...")
         TCPSock.listen(1)
         conn, addr = TCPSock.accept()
-        print('Connected to ' + str(addr))
+        #print('Connected to ' + str(addr))
         connected = True
     try:
         # wait for someone to request data
@@ -44,12 +44,12 @@ while True:
         data = data.decode('utf-8')
         #print('Received ' + data)
     except error:
-        print("Error Occured.")
+        #print("Error Occured.")
         break
 
     # if we receive nothing, terminate the connection
     if data == "":
-            print('Disconnecting from ' + str(addr))
+            #print('Disconnecting from ' + str(addr))
             connected = False
             conn.close()
     elif len(data) > 1:
@@ -93,6 +93,6 @@ while True:
                 conn.sendall(sendData.encode())
             except error:
                 # broken pipe; break connection
-                print("Broken pipe; disconnecting from " + str(addr))
+                #print("Broken pipe; disconnecting from " + str(addr))
                 connected = False
                 conn.close()

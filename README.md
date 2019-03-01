@@ -3,7 +3,7 @@ An EPICS StreamDevice input-output controller for wireless XBee L/T/H sensors, u
 
 ## Known Issues ##
 - The sCalcout record will cause an error when reading the generated dbd file. To avoid this, all references to 'scalcout' (about
-3 lines) must be removed from the dbd file before running the IOC.
+3 lines) must be removed from the dbd file before running the IOC. This is done by the provided install script.
 - Sometimes the IOC will interpret responses incorrectly when it starts up, causing readings to be sent to the wrong PVs. If this happens, just restart the IOC.
 
 # Requirements #
@@ -58,4 +58,4 @@ iocBoot/iocXBee/st.cmd:
 If your XStick is connected to the same computer running the IOC, use 'localhost'. 
 
 After setting up the port, change the scans at the bottom of st.cmd to scan the correct PV names. Modify configure/RELEASE to 
-point to your EPICS base, asyn and stream installations then run 'make' to compile. Your IOC is now ready to run!
+point to your EPICS base, asyn and stream installations then run ```install.sh``` to compile. Your IOC is now ready to run!

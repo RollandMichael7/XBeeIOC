@@ -21,17 +21,21 @@ An EPICS StreamDevice input-output controller for wireless XBee L/T/H sensors, u
 Follow the setup for the coordinator that you're using, either a gateway or an XStick USB adapter.
 
 ## Setting up your gateway ##
+
+This setup assumes that you have already connected your gateway to your network and know its IP. If not, see [Digi's 
+documentation](https://www.digi.com/resources/documentation/digidocs/90001399-13/Default.htm).
+
 In order for the IOC to work, your gateway must be running a TCP server which responds to the specific commands sent to it
 by the StreamDevice XBee protocol. Python files to run this server are included, however to obtain the data from the sensors your 
 gateway must know the IDs of your sensors. These can be found on your gateway's web interface in the "XBee Network" section. If 
 your gateway isnt connected to the sensors, click "Discover XBee Devices" and the sensors should show up with their IDs. 
 Additionally, the sensors and the gateway must have matching PAN IDs which can also be configured from the XBee Network section.
 Once you've connected and set up the sensors, enter their IDs in ```python/gateway/gatewayTCP.py``` in the ```sensor_addresses``` 
-array, then transfer the contents of the gateway folder to your gateway. The server can be run either by SSHing to the gateway 
-and using the command line or by setting the script to auto-run through the gateway's web interface. To run the server in the 
-background from the gateway's command line, run ``` nohup python gatewayTCP.py & ```. You may then disconnect from the gateway 
-and it will continue to run the server while it is powered (unless the script crashes). Note that if you set the script to auto-
-run from the gateway's web interface, you can also set the script to restart if it ever crashes.
+array, then transfer the contents of the ```python/gateway``` folder to your gateway. The server can be run either by SSHing to 
+the gateway and using the command line or by setting the script to auto-run through the gateway's web interface. To run the 
+server in the background from the gateway's command line, run ``` nohup python gatewayTCP.py & ```. You may then disconnect from 
+the gateway and it will continue to run the server while it is powered (unless the script crashes). Note that if you set the 
+script to auto-run from the gateway's web interface, you can also set the script to restart if it ever crashes.
 
 ## Setting up your XStick ##
 To configure your XStick, download the [XCTU](https://www.digi.com/products/iot-platform/xctu) software from Digi. Open XCTU and 

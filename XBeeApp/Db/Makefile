@@ -10,7 +10,7 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------------------
 # Create and install (or just install)
 # databases, templates, substitutions like this
-DB += asynRecord.db
+#DB += asynRecord.db
 #DB += ha7e.db
 #DB += humidity_test.db
 DB += xbee.db

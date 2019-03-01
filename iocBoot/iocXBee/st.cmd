@@ -9,10 +9,9 @@ dbLoadDatabase "$(TOP)/dbd/XBee.dbd"
 XBee_registerRecordDeviceDriver pdbbase
 
 # Configure IP port for gateway
-drvAsynIPPortConfigure("XBEE","10.10.192.18:12000")
+drvAsynIPPortConfigure("XBEE","localhost:12000")
 
 ## Load record instances
-dbLoadRecords "$(TOP)/db/asynRecord.db"
 dbLoadRecords "$(TOP)/db/xbee.db"
 
 iocInit

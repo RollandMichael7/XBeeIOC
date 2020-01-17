@@ -1,5 +1,12 @@
 # XBeeIOC #
-An EPICS StreamDevice input-output controller for wireless XBee L/T/H sensors, using a Python TCP server. 
+
+Author: Michael Rolland  
+Corresponding Author: Kazimierz Gofron  
+Created: February 22, 2019  
+Last Updated: March 1, 2019   
+Copyright (c): 2019 Brookhaven National Laboratory  
+
+**An EPICS StreamDevice IOC for wireless XBee L/T/H sensors, using a Python TCP server**. 
 
 ## Known Issues ##
 - The sCalcout record will cause an error when reading the generated dbd file. To avoid this, all references to 'scalcout' (about
